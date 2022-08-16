@@ -109,7 +109,8 @@
 .text_right_title{
     /*color: rgb(3,72,75);*/
     color: white;
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
+    font-family: "Monaco";
     font-weight: bold;
     font-size: clamp(16px, 1.5vw, 25px);
     line-height: 2;
@@ -119,7 +120,8 @@
 .text_right{
     /*color: rgb(3,72,75);*/
     color: white;
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
+    font-family: "Monaco";
     font-weight: bold;
     font-size: clamp(11px, 1.3vw, 17px);
     line-height: 1.75;
@@ -172,7 +174,8 @@
     padding: 10px;
     display: flex;
     font-size: clamp(12px, 1.1vw, 17px);
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
+    font-family: "Monaco";
     width: 85%;
 }
 
