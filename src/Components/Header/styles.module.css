@@ -1,0 +1,52 @@
+.div_container{
+    width: 100%;
+    background-color: rgb(153,215,214);
+    direction: rtl;
+    padding: 15px 14% 15px 14%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    /*position: fixed;*/
+    display: flex;
+}
+
+.img_logo{
+    font-size: clamp(15px, 1.4vw, 28px);
+    width: 60px;
+    padding-left: 20px;
+}
+
+.div_center_header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+    padding-left:20px;
+}
+
+.text_home {
+    color: white;
+    font-family: "B Nazanin";
+    font-size: clamp(14px, 1.5vw, 23px);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+
+    /*border-top: none;*/
+    /*border-bottom: none;*/
+    /*!*color: blue;*!*/
+    /*!*background-color: palevioletred;*!*/
+    /*color: white;*/
+    /*text-align: center;*/
+    /*!*padding: 14px 16px;*!*/
+    /*text-decoration: none;*/
+    /*cursor: pointer;*/
+    /*font-size: clamp(12px, 1.7vw, 20px);*/
+}
+
+.text_home :hover{
+    text-shadow: 0 0 3px white, 0 0 5px white;
+}
+
+

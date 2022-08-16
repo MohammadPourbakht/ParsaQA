@@ -1,0 +1,260 @@
+.div_container{
+    width: 100%;
+    /*height: 100vh;*/
+    background-color:rgb(79,189,186);
+    display: flex;
+    /*height: fit-content;*/
+    flex-direction: column;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.div_readHelp{
+    display: flex;
+    direction: rtl;
+    justify-content: flex-start;
+    align-items: start;
+    width: 100%;
+    padding-right: 3%;
+    box-sizing: border-box;
+}
+
+.text_readHelp{
+    color: white;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(11px, 1.3vw, 17px);
+    /*line-height: 1.75;*/
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.div_refresh{
+    /*border: 2px solid white;*/
+    /*border-radius: 50%;*/
+    /*background-color: rgb(3,72,75);*/
+    /*width: 3%;*/
+    display: flex;
+    /*padding: 4px;*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*margin-top: 100px;*/
+    justify-content: center;
+    align-items: center;
+    /*width: 25%;*/
+
+}
+
+.button_refresh{
+    display: flex;
+    color: white;
+    background-color: rgb(3,72,75);
+    border-radius: 15px;
+    border: 0;
+    font-size: clamp(12px, 1.3vw, 19px);
+    align-items: center;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    /*padding-bottom: 40px;*/
+    padding:9px 20px;
+}
+
+.button_refresh:hover{
+    background-color: white;
+    color:  rgb(3,72,75);
+}
+
+.img_refresh{
+    /*font-size: clamp(12px, 1.2vw, 18px);*/
+    display: flex;
+    /*size: clamp(11px, 1.3vw, 17px);*/
+}
+
+.div_row_span{
+    display: flex;
+    flex-direction: row;
+    padding-right: 25px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    direction: rtl;
+    align-items: start;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.div_space{
+    width: 20px;
+}
+
+.div_right{
+    border: 2px solid white;
+    /*background-color: white;*/
+    border-radius: 5px;
+    padding: 7px 14px;
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 10px 0 rgb(248, 241, 241);
+}
+.text_right_title{
+    /*color: rgb(3,72,75);*/
+    color: white;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(16px, 1.5vw, 25px);
+    line-height: 2;
+    padding-bottom: 10px;
+}
+
+.text_right{
+    /*color: rgb(3,72,75);*/
+    color: white;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(11px, 1.3vw, 17px);
+    line-height: 1.75;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.div_box{
+    display: flex;
+    flex-direction: column;
+    padding-right: 2%;
+    padding-left: 2%;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 40px;
+}
+
+.div_box_question{
+    display: flex;
+    flex-direction: row;
+    direction: rtl;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 2%;
+    /*flex-wrap: wrap;*/
+
+}
+
+.text_question{
+    /*color: rgb(3,72,75);*/
+    color: white;
+    font-family: "B Nazanin";
+    /*font-weight: bold;*/
+    font-size: clamp(11px, 1.3vw, 16px);
+    width: 17%;
+    /*line-height: 1.75;*/
+    text-align: justify;
+    text-justify: inter-word;
+    padding-left: 2%;
+}
+
+.input_question{
+    border-radius: 11px;
+    border: solid rgb(3,72,75) 0px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.16);
+    background-color: white;
+    outline: none;
+    direction: rtl;
+    padding: 10px;
+    display: flex;
+    font-size: clamp(12px, 1.1vw, 17px);
+    font-family: "B Nazanin";
+    width: 85%;
+}
+
+.input_question::placeholder{
+    color: rgb(3,72,75);
+    direction: rtl;
+    text-align: right;
+    font-family: "B Nazanin";
+    font-size: clamp(11px, 1.5vw, 17px);
+    opacity: 0.6;
+}
+
+.input_question:focus{
+    box-shadow: 0 2px 12px 0 rgb(3,72,75),0 0 0 1.3px rgb(3,72,75);
+}
+
+.input_question:not(:focus) {
+    box-shadow: none;
+}
+
+.div_save{
+    /*border: 2px solid white;*/
+    /*border-radius: 50%;*/
+    /*background-color: rgb(3,72,75);*/
+    /*width: 3%;*/
+    display: flex;
+    /*padding: 4px;*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*margin-top: 100px;*/
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    /*width: 25%;*/
+
+}
+
+.button_save{
+    display: flex;
+    color: white;
+    background-color: rgb(3,72,75);
+    border-radius: 15px;
+    border: 0;
+    font-size: clamp(12px, 1.3vw, 19px);
+    align-items: center;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+    /*padding-bottom: 40px;*/
+    padding:9px 20px;
+}
+
+.button_save:hover{
+    background-color: white;
+    color:  rgb(3,72,75);
+}
+
+
+@media screen and (max-width: 655px) {
+    div.div_readHelp{
+        padding-bottom: 10px;
+    }
+
+    div.div_row_span{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.div_space{
+        width: 0;
+        height: 23px;
+    }
+
+    div.div_right{
+        width: 86%;
+    }
+
+    span.text_question{
+        font-size: clamp(9px, 1.2vw, 13px);
+    }
+
+
+}

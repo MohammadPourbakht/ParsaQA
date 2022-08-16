@@ -1,0 +1,112 @@
+.div_container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    /*background-color: rgba(0,0,0,0.8);*/
+    background-color: rgba(255, 255, 255, 0.3);
+    line-height: 1;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    z-index: 500;
+    /*padding-top: 28px;*/
+}
+
+
+.div_box {
+    border-radius: 18px;
+    height: 88%;
+    width: 85%;
+    background-color: white;
+    opacity: 1;
+    outline: none;
+    padding: 15px 20px 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    /*direction: rtl;*/
+}
+
+.div_modal_hide{
+    display: none;
+    visibility: hidden;
+}
+
+.close_button{
+    height: 10%;
+    width: 100%;
+    direction: rtl;
+    padding-bottom: 1.5%;
+}
+.close{
+    border-radius: 8px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    font-family: "B Nazanin";
+    font-size: clamp(12px, 1.6vw, 19px);
+    background-color: rgb(3,72,75);
+    border: 0;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    direction: ltr;
+    align-items: center;
+    padding: 7px 12px;
+    width: fit-content;
+    /*margin-right: 2%;*/
+    /*margin-bottom: -5%;*/
+}
+.image_close{
+    height: 40%;
+    padding-left: 10px;
+}
+
+.div_spans{
+    display: flex;
+    padding-right: 20px;
+    overflow-y: scroll;
+}
+
+.div_spans::-webkit-scrollbar {
+    width: 7px;
+}
+.div_spans::-webkit-scrollbar-track {
+    /*background: transparent;*/
+    box-sizing: border-box;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+margin-left: 20px;
+}
+
+.div_spans_inner{
+    display: flex;
+    direction: rtl;
+    flex-direction: column;
+}
+
+
+.text_helpFirst{
+    color: rgb(3,72,75);
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(13px, 1.5vw, 19px);
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
+    direction: rtl;
+}
+
+.text_helpSecond{
+    color: rgb(3,72,75);
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(11px, 1.3vw, 17px);
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
+    direction: rtl;
+}
