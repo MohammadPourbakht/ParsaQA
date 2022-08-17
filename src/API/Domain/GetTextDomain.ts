@@ -1,4 +1,4 @@
-import {Get, Patch,  PutByToken,PostByToken} from "../fetch";
+import {Get} from "../fetch";
 import getText from "../ViewModel/GetTextViewModel";
 
 

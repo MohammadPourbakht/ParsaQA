@@ -1,13 +1,32 @@
 import styles from "./styles.module.css";
 import Header from "../Components/Header/Header";
-import refresh from "../Images/refresh.jpg";
 import HelpModal from "../Components/HelpModal/helpModal";
 import {useState} from "react";
 import API from "../API";
 
+
+
 export default function Home() {
     const [show, setShow] = useState(false);
     const [visible, setVisible] = useState(true);
+
+    const [text1, setText1] = useState("");
+    const [text2, setText2] = useState("");
+    const [title1, setTitle1] = useState("");
+    const [title2, setTitle2] = useState("");
+
+    const [input1, setInput1] = useState("");
+    const [input2, setInput2] = useState("");
+    const [input3, setInput3] = useState("");
+    const [input4, setInput4] = useState("");
+
+    const [passageId1, setPassageId1] = useState("");
+    const [passageId2, setPassageId2] = useState("");
+
+    const [paragraphId1, setParagraphId1] = useState(0);
+    const [paragraphId2, setParagraphId2] = useState(0);
+
+
 
     const changeHeader = () => {
         if (window.scrollY > 0) {
@@ -24,10 +43,51 @@ export default function Home() {
 
         API.getTextDomain.GetText()
             .then((response) => {
+                console.log("Get then")
                 console.log(response);
+                setTitle1(response.paragraph1.title)
+                setText1(response.paragraph1.text);
+                setTitle2(response.paragraph2.title)
+                setText2(response.paragraph2.text)
+
+                setPassageId1(response.paragraph1.passage1_id)
+                setPassageId2(response.paragraph2.passage2_id)
+                setParagraphId1(response.paragraph1.passage1_paragraph_id)
+                setParagraphId2(response.paragraph2.passage2_paragraph_id)
             })
             .catch((response) => {
+                console.log("Get catch")
                 console.log(response);
+            });
+    };
+
+
+    const onSaveClick = (e: any) => {
+        e.preventDefault();
+
+        API.PostDataDomain.PostData({
+            Answer: input2,
+            Question: input1,
+            Supporting_fact1: input3,
+            Supporting_fact2: input4,
+
+            passage1_id: passageId1,
+            passage1_paragraph_id: paragraphId1.toString(),
+            passage2_id: passageId2,
+            passage2_paragraph_id: paragraphId2.toString(),
+
+        })
+            .then((response) => {
+                console.log("Post then")
+                console.log(response);
+
+            })
+            .catch((response) => {
+                console.log("Post catch")
+                console.log(response);
+                alert("ذخیره اطلاعات با خطا همراه بود")
+
+
             });
     };
 
@@ -36,7 +96,7 @@ export default function Home() {
     return (
         <div className={styles.div_container}
              style={{
-            height: visible==true?"100vh" : "100%" ,
+            height: visible===true?"100vh" : "100%" ,
         }}>
             <HelpModal show={show} setshow={setShow}/>
 
@@ -61,11 +121,13 @@ export default function Home() {
 
                 <div className={styles.div_right}>
                     <span className={styles.text_right_title}>
-شیخ عبدالکریم خوئینى زنجانی             </span>
+                        {title1}
+
+             </span>
 
                     <span className={styles.text_right}>
-[1]آیت الله شیخ عبدالکریم خوئینى زنجانى (۱۳۱۷-۱۲۹۱ ق) فقیهى بزرگ و پارسائى پرهیزگار و متخلق به اخلاق الهى بود. [2]وی صاحب اجازاتى از میرزا محمدتقى شیرازى، آخوند خراسانى و شیخ الشریعه اصفهانى بوده است. [3]آن مرحوم علاوه بر تدریس علوم دینی در حوزه علمیه زنجان و قم، در مشکل‌گشایى کار مردم کوشا و به نیکى و خیراندیشى مشهور بودند. [4]عبدالکریم خوئینى زنجانى، در حدود سال ۱۲۹۱ قمرى در شهر خوئین (۸ فرسخى زنجان) مى باشد، در خانواده اى روحانى به دنیا آمد و در سنین کودکى پا به مکتب گذاشت و تحصیلات ابتدایى را در مکتب‌خانه به پایان رساند. [5]پدرش، حجة الاسلام شیخ ملا ابراهیم بن اسحق از شاگردان شیخ انصارى و مادرش مجتهده مطهره، صبیه آیت الله آقا شیخ عبدالکریم روغنى قزوینى مى باشد. [6]آن بانوى بزرگوار علاوه بر این که دختر مجتهد بود، خود نیز تحصیلات عالیه داشت و آن گونه که نقل شده، در درس خارج پدرش در پس پرده حاضر مى شد و استفاده مى کرد.             </span>
-
+                        {text1}
+                        </span>
                 </div>
 
                 <div className={styles.div_space}>
@@ -74,11 +136,12 @@ export default function Home() {
 
                 <div className={styles.div_right}>
                     <span className={styles.text_right_title}>
-تشیع           </span>
+                        {title2}
+           </span>
 
                     <span className={styles.text_right}>
-[1]جانشینی محمدvteتشیع: از ریشۀ شیعه است. [2]شیعه به معنای گروه و جمعیت، گروه پیرو، هواداران و پیروان است. [3]شیعه در اصطلاح دینی به گروهی از مسلمانان گفته می‌شود که هم به علی(ع) و اهل بیت پیامبر محبت و عشق می‌ورزند، هم آنان را با امر و نصّ الهی و نصب پیامبر، جانشینان بر حق و بلا فصل رسول خدا(ص) می‌شناسند و هم به امامت و پیشوایی امامان معصوم در همۀ زمینه‌ها گردن می‌نهند. [4]چنین اعتقادی تشیّع نامیده می‌شود. [5]امام خمینی، احیاگر شیعه در قرن حاضر می‌فرماید: ما مفتخریم که پیرو مذهبی هستیم که رسول خدا(ص) مؤسّس آن به امر خداوند تعالی بوده و امیر المؤمنین علی بن طالب(ع) این بندۀ رها شده از تمام قیود، مأمور رهاکردن بشر از تمام اغلال و بردگی‌هاست.
-                </span>
+                        {text2}
+                    </span>
                     </div>
             </div>
 
@@ -93,7 +156,7 @@ export default function Home() {
                         className={styles.input_question}
                         placeholder={"متن سوال ..."}
                         required
-                        // onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setInput1(e.target.value)}
                     />
 
                 </div>
@@ -109,7 +172,7 @@ export default function Home() {
                         className={styles.input_question}
                         placeholder={"پاسخ سوال ..."}
                         required
-                        // onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setInput2(e.target.value)}
                     />
 
                 </div>
@@ -122,7 +185,7 @@ export default function Home() {
                         className={styles.input_question}
                         placeholder={"شماره جملات پاراگراف سمت راست ..."}
                         required
-                        // onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setInput3(e.target.value)}
                     />
 
                 </div>
@@ -137,15 +200,18 @@ export default function Home() {
                         className={styles.input_question}
                         placeholder={"شماره جملات پاراگراف سمت چپ ..."}
                         required
-                        // onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setInput4(e.target.value)}
                     />
 
                 </div>
             </div>
 
+
             <div className={styles.div_save}>
-                <button className={styles.button_save}>ذخیره</button>
+                <button className={styles.button_save} onClick={onSaveClick}>ذخیره</button>
             </div>
+
+
 
 
 
