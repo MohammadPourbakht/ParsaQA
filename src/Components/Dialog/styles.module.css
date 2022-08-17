@@ -1,0 +1,24 @@
+.div_container{
+    width: fit-content;
+    /*height: 5vh;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 500;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.div_dialog_hide{
+    display: none;
+    visibility: hidden;
+}
+
+.text{
+    color: white;
+    font-family: "B Nazanin";
+    font-weight: bold;
+    font-size: clamp(13px, 1.5vw, 19px);
+    direction: rtl;
+}

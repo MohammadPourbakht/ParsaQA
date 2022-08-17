@@ -3,6 +3,7 @@ import Header from "../Components/Header/Header";
 import HelpModal from "../Components/HelpModal/helpModal";
 import {useState} from "react";
 import API from "../API";
+import Dialog from "../Components/Dialog/Dialog";
 
 
 
@@ -25,6 +26,10 @@ export default function Home() {
 
     const [paragraphId1, setParagraphId1] = useState(0);
     const [paragraphId2, setParagraphId2] = useState(0);
+
+    const [showDialog, setShowDialog] = useState(false);
+    const [successSave, setSuccessSave] = useState(false);
+    const [dialogText, setDialogText] = useState("");
 
 
 
@@ -77,16 +82,26 @@ export default function Home() {
             passage2_paragraph_id: paragraphId2.toString(),
 
         })
-            .then((response) => {
+            .then(async (response) => {
                 console.log("Post then")
                 console.log(response);
 
+                setShowDialog(true);
+                setDialogText("اطلاعات با موفقیت ذخیره شد")
+                await new Promise(f => setTimeout(f, 3000));
+                setShowDialog(false);
+                setSuccessSave(true);
+
             })
-            .catch((response) => {
+            .catch(async (response) => {
                 console.log("Post catch")
                 console.log(response);
-                alert("ذخیره اطلاعات با خطا همراه بود")
 
+                setShowDialog(true);
+                setDialogText("ذخیره اطلاعات با خطا همراه بود")
+                await new Promise(f => setTimeout(f, 3000));
+                setShowDialog(false);
+                setSuccessSave(false);
 
             });
     };
@@ -101,7 +116,6 @@ export default function Home() {
             <HelpModal show={show} setshow={setShow}/>
 
             <Header show={show} setshow={setShow} />
-
 
             <body className={styles.body}>
 
@@ -211,11 +225,12 @@ export default function Home() {
                 <button className={styles.button_save} onClick={onSaveClick}>ذخیره</button>
             </div>
 
-
-
-
-
             </body>
+
+            <div className={styles.div_dialog}>
+            <Dialog show={showDialog} text={dialogText} successSave={successSave}/>
+            </div>
+
         </div>
     );
 }
