@@ -16,6 +16,7 @@ export default function Dialog({ show , text , successSave}: Props): JSX.Element
                   {text}
                 </span>
 
+
         </div>
     );
 
