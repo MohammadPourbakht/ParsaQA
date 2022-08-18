@@ -82,26 +82,46 @@ export default function Home() {
             passage2_paragraph_id: paragraphId2.toString(),
 
         })
+
             .then(async (response) => {
                 console.log("Post then")
                 console.log(response);
 
+                setSuccessSave(true);
                 setShowDialog(true);
                 setDialogText("اطلاعات با موفقیت ذخیره شد")
+                setInput1("");
+                setInput2("");
+                setInput3("");
+                setInput4("");
                 await new Promise(f => setTimeout(f, 3000));
                 setShowDialog(false);
-                setSuccessSave(true);
+
 
             })
             .catch(async (response) => {
                 console.log("Post catch")
                 console.log(response);
 
-                setShowDialog(true);
-                setDialogText("ذخیره اطلاعات با خطا همراه بود")
-                await new Promise(f => setTimeout(f, 3000));
-                setShowDialog(false);
-                setSuccessSave(false);
+                if (response.toJSON().status === 201) {
+                    setSuccessSave(true);
+                    setShowDialog(true);
+                    setDialogText("اطلاعات با موفقیت ذخیره شد")
+                    setInput1("");
+                    setInput2("");
+                    setInput3("");
+                    setInput4("");
+                    await new Promise(f => setTimeout(f, 3000));
+                    setShowDialog(false);
+                }
+
+                else if(response.toJSON().status === 400 || response.toJSON().status === 401){
+                    setSuccessSave(false);
+                    setShowDialog(true);
+                    setDialogText("ذخیره اطلاعات با خطا همراه بود")
+                    await new Promise(f => setTimeout(f, 3000));
+                    setShowDialog(false);
+                }
 
             });
     };
@@ -171,6 +191,7 @@ export default function Home() {
                         placeholder={"متن سوال ..."}
                         required
                         onChange={(e) => setInput1(e.target.value)}
+                        value={input1}
                     />
 
                 </div>
@@ -187,6 +208,7 @@ export default function Home() {
                         placeholder={"پاسخ سوال ..."}
                         required
                         onChange={(e) => setInput2(e.target.value)}
+                        value={input2}
                     />
 
                 </div>
@@ -200,6 +222,7 @@ export default function Home() {
                         placeholder={"شماره جملات پاراگراف سمت راست ..."}
                         required
                         onChange={(e) => setInput3(e.target.value)}
+                        value={input3}
                     />
 
                 </div>
@@ -215,6 +238,7 @@ export default function Home() {
                         placeholder={"شماره جملات پاراگراف سمت چپ ..."}
                         required
                         onChange={(e) => setInput4(e.target.value)}
+                        value={input4}
                     />
 
                 </div>
